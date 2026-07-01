@@ -1,0 +1,676 @@
+:root {
+  color-scheme: dark light;
+  --背景: #0b0c0d;
+  --表面: #121417;
+  --表面二: #191d21;
+  --文字: #f1f4ef;
+  --弱文字: #a5ada8;
+  --细线: rgba(241, 244, 239, 0.14);
+  --强调: #c8ff3d;
+  --强调深: #1d260b;
+  --阴影: rgba(0, 0, 0, 0.38);
+  --圆角: 18px;
+  --最大宽: 1380px;
+  font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --背景: #f5f6f1;
+    --表面: #ffffff;
+    --表面二: #e9ece5;
+    --文字: #111412;
+    --弱文字: #5c635d;
+    --细线: rgba(17, 20, 18, 0.14);
+    --强调: #446600;
+    --强调深: #ecffd0;
+    --阴影: rgba(42, 45, 38, 0.14);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 72% 8%, rgba(200, 255, 61, 0.08), transparent 26rem),
+    linear-gradient(180deg, var(--背景), var(--背景));
+  color: var(--文字);
+  letter-spacing: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.跳到内容 {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 20;
+  padding: 0.65rem 0.9rem;
+  background: var(--强调);
+  color: #111412;
+  border-radius: 999px;
+  transform: translateY(-150%);
+}
+
+.跳到内容:focus {
+  transform: translateY(0);
+}
+
+.顶部导航 {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--细线);
+  background: color-mix(in srgb, var(--背景) 82%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.品牌标识 {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.导航链接 {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--弱文字);
+  font-size: 0.94rem;
+}
+
+.导航链接 a:hover,
+.导航链接 a:focus-visible {
+  color: var(--文字);
+}
+
+.首页英雄 {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: center;
+  width: min(var(--最大宽), calc(100% - 48px));
+  min-height: calc(100dvh - 68px);
+  margin: 0 auto;
+  padding: 42px 0 64px;
+}
+
+.英雄文案 {
+  align-self: end;
+  padding-bottom: 6vh;
+}
+
+.小标签 {
+  margin: 0 0 18px;
+  color: var(--强调);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  margin-bottom: 22px;
+  font-size: 6.4rem;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 4.1rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+p {
+  color: var(--弱文字);
+  line-height: 1.72;
+}
+
+.英文副标题,
+.英文说明 {
+  color: color-mix(in srgb, var(--弱文字) 74%, var(--文字));
+}
+
+.英雄按钮组 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.主按钮,
+.次按钮 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.主按钮 {
+  background: var(--强调);
+  color: #111412;
+}
+
+.次按钮 {
+  border: 1px solid var(--细线);
+  color: var(--文字);
+}
+
+.主按钮:hover,
+.次按钮:hover {
+  transform: translateY(-1px);
+}
+
+.主按钮:active,
+.次按钮:active {
+  transform: translateY(1px);
+}
+
+.英雄媒体 {
+  position: relative;
+  min-height: 64vh;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--表面);
+  box-shadow: 0 28px 90px var(--阴影);
+}
+
+.英雄媒体 video {
+  width: 100%;
+  height: 100%;
+  min-height: 64vh;
+  object-fit: cover;
+}
+
+.媒体说明 {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: grid;
+  gap: 4px;
+  max-width: calc(100% - 36px);
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(11, 12, 13, 0.68);
+  backdrop-filter: blur(16px);
+}
+
+.媒体说明 span {
+  color: #cbd2cc;
+  font-size: 0.78rem;
+}
+
+.概览带 {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 1.4fr;
+  gap: 1px;
+  width: min(var(--最大宽), calc(100% - 48px));
+  margin: 0 auto 100px;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--细线);
+}
+
+.概览带 article {
+  padding: 26px;
+  background: color-mix(in srgb, var(--表面) 82%, transparent);
+}
+
+.概览带 strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.概览带 span {
+  color: var(--弱文字);
+}
+
+.作品区,
+.方法区,
+.联系区,
+.进行中区,
+.案例页面 {
+  width: min(var(--最大宽), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.作品区,
+.方法区,
+.进行中区 {
+  padding: 70px 0;
+}
+
+.区块标题 {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.完成作品网格 {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.大型作品卡 a {
+  display: grid;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--表面);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.大型作品卡 a:hover,
+.大型作品卡 a:focus-visible {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--强调) 60%, var(--细线));
+}
+
+.卡片媒体 {
+  position: relative;
+  overflow: hidden;
+  background: var(--表面二);
+}
+
+.卡片媒体.横版 {
+  aspect-ratio: 16 / 9;
+}
+
+.卡片媒体 video,
+.竖版预览卡 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.大型作品卡 a:hover video,
+.竖版预览卡:hover video {
+  transform: scale(1.035);
+}
+
+.卡片内容 {
+  padding: 24px;
+}
+
+.状态标签 {
+  display: inline-flex;
+  margin-bottom: 20px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--强调深);
+  color: var(--强调);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.进行中内容 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 34px;
+  align-items: center;
+  padding: 34px;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: linear-gradient(135deg, var(--表面), color-mix(in srgb, var(--表面二) 72%, transparent));
+}
+
+.进行中内容 h2 {
+  max-width: 10ch;
+}
+
+.文本链接 {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  color: var(--强调);
+  font-weight: 700;
+  border-bottom: 1px solid color-mix(in srgb, var(--强调) 62%, transparent);
+}
+
+.竖版预览卡 {
+  justify-self: end;
+  width: min(100%, 280px);
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--表面二);
+}
+
+.方法网格 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--细线);
+}
+
+.方法网格 article {
+  min-height: 230px;
+  padding: 42px;
+  background: var(--表面);
+}
+
+.方法网格 span {
+  display: block;
+  margin-bottom: 34px;
+  color: var(--强调);
+  font-weight: 800;
+}
+
+.联系区 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 80px 0 96px;
+}
+
+.联系区 h2 {
+  max-width: 16ch;
+}
+
+.页脚 {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(var(--最大宽), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 26px 0 38px;
+  border-top: 1px solid var(--细线);
+  color: var(--弱文字);
+}
+
+.案例页面 {
+  padding-bottom: 80px;
+}
+
+.案例英雄 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 40px;
+  align-items: end;
+  padding: 72px 0 36px;
+}
+
+.案例标题 h1 {
+  max-width: 12ch;
+}
+
+.案例标题 p {
+  max-width: 760px;
+}
+
+.案例元信息 {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--细线);
+}
+
+.案例元信息 span {
+  padding: 15px 17px;
+  background: var(--表面);
+  color: var(--弱文字);
+}
+
+.播放器区,
+.竖版播放器区 {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 54px;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: #050607;
+  box-shadow: 0 28px 90px var(--阴影);
+}
+
+.主播放器 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050607;
+}
+
+.竖版播放器区 {
+  padding: 24px;
+}
+
+.竖版播放器 {
+  width: min(100%, 420px);
+  max-height: 82dvh;
+  aspect-ratio: 9 / 16;
+  border-radius: calc(var(--圆角) - 4px);
+  background: #050607;
+}
+
+.案例正文 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--细线);
+  border-radius: var(--圆角);
+  background: var(--细线);
+}
+
+.案例正文 article {
+  padding: 28px;
+  background: var(--表面);
+}
+
+.案例正文 h2 {
+  font-size: 1.8rem;
+}
+
+.下一项 {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 42px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .自动预览视频,
+  .悬停预览视频 {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .顶部导航 {
+    padding: 0 20px;
+  }
+
+  .导航链接 {
+    gap: 14px;
+  }
+
+  .首页英雄,
+  .完成作品网格,
+  .进行中内容,
+  .案例英雄,
+  .案例正文,
+  .联系区 {
+    grid-template-columns: 1fr;
+  }
+
+  .首页英雄 {
+    min-height: auto;
+    padding-top: 36px;
+  }
+
+  .英雄文案 {
+    padding-bottom: 0;
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: 4.3rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 1.65rem;
+  }
+
+  .英雄媒体,
+  .英雄媒体 video {
+    min-height: 48vh;
+  }
+
+  .概览带,
+  .方法网格 {
+    grid-template-columns: 1fr;
+  }
+
+  .竖版预览卡 {
+    justify-self: start;
+    width: min(100%, 240px);
+  }
+
+  .页脚,
+  .下一项 {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .顶部导航 {
+    min-height: 62px;
+  }
+
+  .品牌标识 {
+    max-width: 42vw;
+    font-size: 0.9rem;
+  }
+
+  .导航链接 {
+    font-size: 0.86rem;
+  }
+
+  .首页英雄,
+  .作品区,
+  .方法区,
+  .联系区,
+  .进行中区,
+  .案例页面,
+  .概览带,
+  .页脚 {
+    width: min(100% - 28px, var(--最大宽));
+  }
+
+  .首页英雄 {
+    gap: 24px;
+  }
+
+  h1 {
+    font-size: 3.05rem;
+  }
+
+  h2 {
+    font-size: 2.35rem;
+  }
+
+  .概览带 strong {
+    font-size: 2.45rem;
+  }
+
+  .方法网格 article {
+    padding: 26px;
+  }
+
+  .英雄按钮组 {
+    width: 100%;
+  }
+
+  .主按钮,
+  .次按钮 {
+    flex: 1 1 auto;
+  }
+
+  .进行中内容 {
+    padding: 22px;
+  }
+
+  .案例英雄 {
+    padding-top: 42px;
+  }
+}
