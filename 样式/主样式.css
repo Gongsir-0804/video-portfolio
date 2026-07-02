@@ -1,31 +1,19 @@
 :root {
-  color-scheme: dark light;
-  --背景: #0b0c0d;
-  --表面: #121417;
-  --表面二: #191d21;
-  --文字: #f1f4ef;
-  --弱文字: #a5ada8;
-  --细线: rgba(241, 244, 239, 0.14);
-  --强调: #c8ff3d;
-  --强调深: #1d260b;
-  --阴影: rgba(0, 0, 0, 0.38);
-  --圆角: 18px;
-  --最大宽: 1380px;
-  font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --背景: #f5f6f1;
-    --表面: #ffffff;
-    --表面二: #e9ece5;
-    --文字: #111412;
-    --弱文字: #5c635d;
-    --细线: rgba(17, 20, 18, 0.14);
-    --强调: #446600;
-    --强调深: #ecffd0;
-    --阴影: rgba(42, 45, 38, 0.14);
-  }
+  color-scheme: dark;
+  --背景: #0c0c0c;
+  --表面: #131416;
+  --表面二: #1a1d20;
+  --文字: #f4f7f1;
+  --弱文字: #9ea7a5;
+  --细线: rgba(244, 247, 241, 0.14);
+  --强线: rgba(244, 247, 241, 0.32);
+  --强调: #c7f36c;
+  --强调深: #1e2a12;
+  --阴影: rgba(0, 0, 0, 0.46);
+  --圆角: 26px;
+  --圆角大: 44px;
+  --最大宽: 1440px;
+  font-family: "Kanit", "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
 }
 
 * {
@@ -34,13 +22,16 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--背景);
 }
 
 body {
   margin: 0;
+  overflow-x: clip;
   background:
-    radial-gradient(circle at 72% 8%, rgba(200, 255, 61, 0.08), transparent 26rem),
-    linear-gradient(180deg, var(--背景), var(--背景));
+    radial-gradient(circle at 80% 4%, rgba(199, 243, 108, 0.1), transparent 27rem),
+    radial-gradient(circle at 10% 28%, rgba(215, 226, 234, 0.07), transparent 23rem),
+    var(--背景);
   color: var(--文字);
   letter-spacing: 0;
 }
@@ -51,11 +42,12 @@ body::before {
   inset: 0;
   z-index: 5;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 0.14;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 44px 44px;
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, black, transparent 75%);
 }
 
 a {
@@ -69,6 +61,44 @@ video {
   max-width: 100%;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+h1 {
+  margin-bottom: 22px;
+  font-size: clamp(4rem, 10vw, 9.6rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(3rem, 8.4vw, 8.8rem);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+p {
+  color: var(--弱文字);
+  line-height: 1.72;
+}
+
 .跳到内容 {
   position: fixed;
   left: 1rem;
@@ -76,7 +106,7 @@ video {
   z-index: 20;
   padding: 0.65rem 0.9rem;
   background: var(--强调);
-  color: #111412;
+  color: #10120e;
   border-radius: 999px;
   transform: translateY(-150%);
 }
@@ -92,99 +122,153 @@ video {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 68px;
-  padding: 0 32px;
+  min-height: 76px;
+  padding: 0 clamp(18px, 4vw, 48px);
   border-bottom: 1px solid var(--细线);
-  background: color-mix(in srgb, var(--背景) 82%, transparent);
-  backdrop-filter: blur(18px);
+  background: rgba(12, 12, 12, 0.78);
+  backdrop-filter: blur(22px);
 }
 
 .品牌标识 {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .导航链接 {
   display: flex;
   align-items: center;
-  gap: 22px;
-  color: var(--弱文字);
-  font-size: 0.94rem;
+  gap: clamp(14px, 2.4vw, 34px);
+  color: #d7e2ea;
+  font-size: clamp(0.86rem, 1.2vw, 1.15rem);
+  font-weight: 700;
+}
+
+.导航链接 a {
+  text-transform: uppercase;
+  transition: opacity 180ms ease, color 180ms ease;
 }
 
 .导航链接 a:hover,
 .导航链接 a:focus-visible {
   color: var(--文字);
+  opacity: 0.72;
 }
 
 .首页英雄 {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
-  gap: clamp(28px, 5vw, 76px);
-  align-items: center;
   width: min(var(--最大宽), calc(100% - 48px));
-  min-height: calc(100dvh - 68px);
+  min-height: calc(100dvh - 76px);
   margin: 0 auto;
-  padding: 42px 0 64px;
+  padding: clamp(28px, 4vw, 58px) 0 clamp(28px, 5vw, 70px);
+  isolation: isolate;
 }
 
-.英雄文案 {
-  align-self: end;
-  padding-bottom: 6vh;
+.英雄标题层 {
+  position: relative;
+  z-index: 1;
+  align-self: start;
 }
 
 .小标签 {
   margin: 0 0 18px;
   color: var(--强调);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
+.渐变大标题 {
+  max-width: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, #5f6570 0%, #dcecf2 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(3.5rem, 12.2vw, 13rem);
+  font-weight: 900;
+  line-height: 0.82;
+  text-transform: uppercase;
 }
 
-h1 {
-  max-width: 11ch;
-  margin-bottom: 22px;
-  font-size: 6.4rem;
-  line-height: 0.95;
-  letter-spacing: 0;
+.英雄媒体 {
+  position: absolute;
+  right: clamp(0px, 3vw, 44px);
+  top: clamp(112px, 22vh, 190px);
+  z-index: 2;
+  width: min(43vw, 620px);
+  min-width: 420px;
+  min-height: min(58dvh, 680px);
+  overflow: hidden;
+  border: 1px solid var(--强线);
+  border-radius: var(--圆角大);
+  background: #050607;
+  box-shadow: 0 34px 120px var(--阴影);
+  transition: transform 320ms ease, border-color 220ms ease;
+  will-change: transform;
 }
 
-h2 {
-  margin-bottom: 18px;
-  font-size: 4.1rem;
-  line-height: 1;
-  letter-spacing: 0;
+.英雄媒体:hover {
+  border-color: rgba(199, 243, 108, 0.48);
 }
 
-h3 {
-  margin-bottom: 12px;
-  font-size: 2rem;
-  line-height: 1.05;
+.英雄媒体 video {
+  width: 100%;
+  height: 100%;
+  min-height: min(58dvh, 680px);
+  object-fit: cover;
 }
 
-p {
-  color: var(--弱文字);
-  line-height: 1.72;
+.媒体说明 {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: grid;
+  gap: 4px;
+  max-width: calc(100% - 40px);
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(12, 12, 12, 0.66);
+  backdrop-filter: blur(18px);
 }
 
-.英文副标题,
-.英文说明 {
-  color: color-mix(in srgb, var(--弱文字) 74%, var(--文字));
+.媒体说明 span {
+  color: #cbd2cc;
+  font-size: 0.76rem;
+}
+
+.媒体说明 strong {
+  font-size: 0.94rem;
+}
+
+.英雄底栏 {
+  position: relative;
+  z-index: 3;
+  align-self: end;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  padding-top: 42vh;
+}
+
+.英雄底栏 p {
+  max-width: 430px;
+  margin-bottom: 0;
+  color: #d7e2ea;
+  font-size: clamp(0.96rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .英雄按钮组 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 12px;
-  margin-top: 28px;
 }
 
 .主按钮,
@@ -192,22 +276,25 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
-  padding: 0 18px;
+  min-height: 48px;
+  padding: 0 22px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 800;
   white-space: nowrap;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .主按钮 {
+  border: 1px solid rgba(199, 243, 108, 0.72);
   background: var(--强调);
-  color: #111412;
+  color: #10120e;
+  box-shadow: 0 0 34px rgba(199, 243, 108, 0.16);
 }
 
 .次按钮 {
-  border: 1px solid var(--细线);
+  border: 1px solid var(--强线);
   color: var(--文字);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .主按钮:hover,
@@ -220,40 +307,72 @@ p {
   transform: translateY(1px);
 }
 
-.英雄媒体 {
-  position: relative;
-  min-height: 64vh;
+.影像流 {
+  width: 100%;
+  padding: clamp(54px, 8vw, 110px) 0 24px;
+  overflow: hidden;
+}
+
+.影像流轨道 {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  margin-bottom: 14px;
+  will-change: transform;
+}
+
+.影像流轨道.向右 {
+  animation: 影像向右 38s linear infinite;
+}
+
+.影像流轨道.向左 {
+  animation: 影像向左 42s linear infinite;
+}
+
+.流媒体卡 {
+  width: clamp(260px, 32vw, 460px);
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid var(--细线);
   border-radius: var(--圆角);
-  background: var(--表面);
-  box-shadow: 0 28px 90px var(--阴影);
+  background: var(--表面二);
 }
 
-.英雄媒体 video {
+.流媒体卡.竖版 {
+  width: clamp(150px, 18vw, 250px);
+  aspect-ratio: 9 / 16;
+}
+
+.流媒体卡 video {
   width: 100%;
   height: 100%;
-  min-height: 64vh;
   object-fit: cover;
+  filter: saturate(0.92) contrast(1.05);
+  transition: transform 520ms ease, filter 520ms ease;
 }
 
-.媒体说明 {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  display: grid;
-  gap: 4px;
-  max-width: calc(100% - 36px);
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  background: rgba(11, 12, 13, 0.68);
-  backdrop-filter: blur(16px);
+.流媒体卡:hover video,
+.流媒体卡:focus-visible video {
+  transform: scale(1.04);
+  filter: saturate(1.08) contrast(1.04);
 }
 
-.媒体说明 span {
-  color: #cbd2cc;
-  font-size: 0.78rem;
+@keyframes 影像向右 {
+  from {
+    transform: translateX(-22%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes 影像向左 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-22%);
+  }
 }
 
 .概览带 {
@@ -261,7 +380,7 @@ p {
   grid-template-columns: 0.8fr 0.8fr 1.4fr;
   gap: 1px;
   width: min(var(--最大宽), calc(100% - 48px));
-  margin: 0 auto 100px;
+  margin: 64px auto 70px;
   overflow: hidden;
   border: 1px solid var(--细线);
   border-radius: var(--圆角);
@@ -269,14 +388,15 @@ p {
 }
 
 .概览带 article {
-  padding: 26px;
-  background: color-mix(in srgb, var(--表面) 82%, transparent);
+  padding: clamp(22px, 3vw, 34px);
+  background: rgba(19, 20, 22, 0.88);
 }
 
 .概览带 strong {
   display: block;
   margin-bottom: 10px;
-  font-size: 3.5rem;
+  color: var(--文字);
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
   line-height: 1;
 }
 
@@ -296,35 +416,72 @@ p {
 .作品区,
 .方法区,
 .进行中区 {
-  padding: 70px 0;
+  padding: clamp(58px, 8vw, 112px) 0;
 }
 
 .区块标题 {
-  max-width: 760px;
-  margin-bottom: 40px;
+  max-width: 880px;
+  margin-bottom: clamp(34px, 6vw, 78px);
+}
+
+.区块标题 h2,
+.进行中内容 h2,
+.案例标题 h1 {
+  background: linear-gradient(180deg, #666b73 0%, #dcecf2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.区块标题 p {
+  max-width: 640px;
+  font-size: 1.04rem;
 }
 
 .完成作品网格 {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 24px;
-  align-items: stretch;
+  gap: clamp(22px, 4vw, 44px);
+}
+
+.大型作品卡 {
+  position: relative;
 }
 
 .大型作品卡 a {
+  position: sticky;
+  top: 96px;
   display: grid;
-  min-height: 100%;
+  grid-template-columns: minmax(240px, 0.84fr) minmax(0, 1.16fr);
+  min-height: min(72dvh, 680px);
   overflow: hidden;
-  border: 1px solid var(--细线);
-  border-radius: var(--圆角);
-  background: var(--表面);
+  border: 2px solid var(--强线);
+  border-radius: var(--圆角大);
+  background: #0c0c0c;
+  box-shadow: 0 30px 110px var(--阴影);
   transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.大型作品卡.紧凑 a {
+  top: 124px;
 }
 
 .大型作品卡 a:hover,
 .大型作品卡 a:focus-visible {
   transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--强调) 60%, var(--细线));
+  border-color: rgba(199, 243, 108, 0.58);
+}
+
+.卡片编号 {
+  position: absolute;
+  left: clamp(22px, 3vw, 42px);
+  top: clamp(18px, 2.4vw, 34px);
+  z-index: 2;
+  color: rgba(244, 247, 241, 0.9);
+  font-size: clamp(4.5rem, 11vw, 12rem);
+  font-weight: 900;
+  line-height: 0.78;
 }
 
 .卡片媒体 {
@@ -334,7 +491,8 @@ p {
 }
 
 .卡片媒体.横版 {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
+  min-height: 100%;
 }
 
 .卡片媒体 video,
@@ -342,42 +500,69 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 500ms ease;
+  transition: transform 620ms ease, filter 620ms ease;
+}
+
+.卡片媒体 video {
+  filter: saturate(0.88) contrast(1.08);
 }
 
 .大型作品卡 a:hover video,
 .竖版预览卡:hover video {
   transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.04);
 }
 
 .卡片内容 {
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: clamp(28px, 4vw, 58px);
+}
+
+.卡片内容 h3 {
+  max-width: 12ch;
+  font-size: clamp(2.4rem, 6vw, 6.4rem);
+  font-weight: 900;
+}
+
+.卡片内容 p {
+  max-width: 560px;
 }
 
 .状态标签 {
   display: inline-flex;
-  margin-bottom: 20px;
-  padding: 6px 10px;
+  align-self: flex-start;
+  margin-bottom: 22px;
+  padding: 7px 12px;
+  border: 1px solid rgba(199, 243, 108, 0.22);
   border-radius: 999px;
   background: var(--强调深);
   color: var(--强调);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.英文副标题,
+.英文说明 {
+  color: color-mix(in srgb, var(--弱文字) 74%, var(--文字));
 }
 
 .进行中内容 {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+  gap: clamp(28px, 6vw, 80px);
   align-items: center;
-  padding: 34px;
-  border: 1px solid var(--细线);
-  border-radius: var(--圆角);
-  background: linear-gradient(135deg, var(--表面), color-mix(in srgb, var(--表面二) 72%, transparent));
+  padding: clamp(28px, 5vw, 66px);
+  border: 1px solid var(--强线);
+  border-radius: var(--圆角大);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 44%),
+    var(--表面);
 }
 
 .进行中内容 h2 {
-  max-width: 10ch;
+  max-width: 11ch;
 }
 
 .文本链接 {
@@ -385,41 +570,47 @@ p {
   align-items: center;
   min-height: 38px;
   color: var(--强调);
-  font-weight: 700;
-  border-bottom: 1px solid color-mix(in srgb, var(--强调) 62%, transparent);
+  font-weight: 800;
+  border-bottom: 1px solid rgba(199, 243, 108, 0.62);
 }
 
 .竖版预览卡 {
   justify-self: end;
-  width: min(100%, 280px);
+  width: min(100%, 300px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
-  border: 1px solid var(--细线);
-  border-radius: var(--圆角);
+  border: 1px solid var(--强线);
+  border-radius: var(--圆角大);
   background: var(--表面二);
 }
 
 .方法网格 {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--细线);
-  border-radius: var(--圆角);
+  border-radius: var(--圆角大);
   background: var(--细线);
 }
 
 .方法网格 article {
-  min-height: 230px;
-  padding: 42px;
+  min-height: 320px;
+  padding: clamp(26px, 3.4vw, 44px);
   background: var(--表面);
 }
 
 .方法网格 span {
   display: block;
-  margin-bottom: 34px;
+  margin-bottom: 48px;
   color: var(--强调);
-  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 5.6rem);
+  font-weight: 900;
+  line-height: 0.8;
+}
+
+.方法网格 h3 {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
 }
 
 .联系区 {
@@ -427,11 +618,12 @@ p {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
   align-items: end;
-  padding: 80px 0 96px;
+  padding: clamp(70px, 10vw, 140px) 0 clamp(72px, 9vw, 120px);
 }
 
-.联系区 h2 {
-  max-width: 16ch;
+.联系留白 {
+  min-height: clamp(90px, 18vw, 230px);
+  border-top: 1px solid var(--细线);
 }
 
 .页脚 {
@@ -454,7 +646,7 @@ p {
   grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
   gap: 40px;
   align-items: end;
-  padding: 72px 0 36px;
+  padding: clamp(54px, 8vw, 92px) 0 40px;
 }
 
 .案例标题 h1 {
@@ -486,8 +678,8 @@ p {
   place-items: center;
   overflow: hidden;
   margin-bottom: 54px;
-  border: 1px solid var(--细线);
-  border-radius: var(--圆角);
+  border: 1px solid var(--强线);
+  border-radius: var(--圆角大);
   background: #050607;
   box-shadow: 0 28px 90px var(--阴影);
 }
@@ -506,7 +698,7 @@ p {
   width: min(100%, 420px);
   max-height: 82dvh;
   aspect-ratio: 9 / 16;
-  border-radius: calc(var(--圆角) - 4px);
+  border-radius: calc(var(--圆角大) - 14px);
   background: #050607;
 }
 
@@ -516,12 +708,12 @@ p {
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--细线);
-  border-radius: var(--圆角);
+  border-radius: var(--圆角大);
   background: var(--细线);
 }
 
 .案例正文 article {
-  padding: 28px;
+  padding: clamp(24px, 3vw, 34px);
   background: var(--表面);
 }
 
@@ -542,22 +734,20 @@ p {
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
 
-  .自动预览视频,
-  .悬停预览视频 {
-    animation: none;
+@media (max-width: 1100px) {
+  .方法网格 {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 900px) {
   .顶部导航 {
-    padding: 0 20px;
-  }
-
-  .导航链接 {
-    gap: 14px;
+    min-height: 68px;
   }
 
   .首页英雄,
@@ -571,29 +761,30 @@ p {
 
   .首页英雄 {
     min-height: auto;
-    padding-top: 36px;
+    gap: 26px;
   }
 
-  .英雄文案 {
-    padding-bottom: 0;
+  .英雄媒体 {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 48dvh;
   }
 
-  h1 {
-    max-width: 12ch;
-    font-size: 4.3rem;
-  }
-
-  h2 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    font-size: 1.65rem;
-  }
-
-  .英雄媒体,
   .英雄媒体 video {
-    min-height: 48vh;
+    min-height: 48dvh;
+  }
+
+  .英雄底栏 {
+    display: grid;
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .英雄按钮组 {
+    justify-content: flex-start;
   }
 
   .概览带,
@@ -601,9 +792,28 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .大型作品卡 a {
+    position: relative;
+    top: auto;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .大型作品卡.紧凑 a {
+    top: auto;
+  }
+
+  .卡片媒体.横版 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .卡片编号 {
+    font-size: clamp(4rem, 22vw, 7rem);
+  }
+
   .竖版预览卡 {
     justify-self: start;
-    width: min(100%, 240px);
+    width: min(100%, 260px);
   }
 
   .页脚,
@@ -614,16 +824,17 @@ p {
 
 @media (max-width: 560px) {
   .顶部导航 {
-    min-height: 62px;
+    padding: 0 14px;
   }
 
   .品牌标识 {
-    max-width: 42vw;
-    font-size: 0.9rem;
+    max-width: 38vw;
+    font-size: 0.82rem;
   }
 
   .导航链接 {
-    font-size: 0.86rem;
+    gap: 10px;
+    font-size: 0.78rem;
   }
 
   .首页英雄,
@@ -637,8 +848,8 @@ p {
     width: min(100% - 28px, var(--最大宽));
   }
 
-  .首页英雄 {
-    gap: 24px;
+  .渐变大标题 {
+    font-size: clamp(3.1rem, 18vw, 5.8rem);
   }
 
   h1 {
@@ -646,31 +857,41 @@ p {
   }
 
   h2 {
-    font-size: 2.35rem;
+    font-size: 2.75rem;
   }
 
-  .概览带 strong {
-    font-size: 2.45rem;
+  .媒体说明 {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    max-width: none;
   }
 
-  .方法网格 article {
-    padding: 26px;
+  .流媒体卡 {
+    width: 250px;
   }
 
-  .英雄按钮组 {
+  .流媒体卡.竖版 {
+    width: 140px;
+  }
+
+  .英雄底栏 p {
+    text-transform: none;
+  }
+
+  .英雄按钮组,
+  .主按钮,
+  .次按钮 {
     width: 100%;
   }
 
-  .主按钮,
-  .次按钮 {
-    flex: 1 1 auto;
+  .进行中内容,
+  .卡片内容,
+  .方法网格 article {
+    padding: 24px;
   }
 
-  .进行中内容 {
-    padding: 22px;
-  }
-
-  .案例英雄 {
-    padding-top: 42px;
+  .联系区 {
+    justify-items: stretch;
   }
 }

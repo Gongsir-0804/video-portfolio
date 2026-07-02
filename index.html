@@ -26,19 +26,12 @@
 
     <main id="主要内容">
       <section class="首页英雄" aria-label="作品集介绍">
-        <div class="英雄文案">
+        <div class="英雄标题层">
           <p class="小标签">AIGC Commercial Film Direction</p>
-          <h1>用 AI 做可被观看的品牌影像，不只做一张好看的图。</h1>
-          <p class="英文副标题">
-            Brand films, storyboard systems, prompt direction and final video assembly.
-          </p>
-          <div class="英雄按钮组">
-            <a class="主按钮" href="#作品">查看作品</a>
-            <a class="次按钮" href="mailto:hello@example.com">联系我</a>
-          </div>
+          <h1 class="渐变大标题">AI Video Portfolio</h1>
         </div>
 
-        <div class="英雄媒体" aria-label="视频预览">
+        <div class="英雄媒体 磁吸目标" aria-label="视频预览">
           <video
             class="自动预览视频"
             src="素材/视频/AMG黑曜之力-预览.mp4"
@@ -52,6 +45,51 @@
             <span>Featured completed work</span>
             <strong>《黑曜之力》</strong>
           </div>
+        </div>
+
+        <div class="英雄底栏">
+          <p>用 AI 做可被观看的品牌影像。从概念、分镜、提示词到最终成片，把视觉想法整理成能播放的作品。</p>
+          <div class="英雄按钮组">
+            <a class="主按钮" href="#作品">查看作品</a>
+            <a class="次按钮" href="mailto:hello@example.com">联系我</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="影像流" aria-label="视频作品片段">
+        <div class="影像流轨道 向右">
+          <a class="流媒体卡" href="案例/AMG黑曜之力.html" aria-label="查看 AMG 黑曜之力">
+            <video class="悬停预览视频" src="素材/视频/AMG黑曜之力-预览.mp4" poster="素材/封面/AMG黑曜之力-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/YSL她让夜色让路.html" aria-label="查看 YSL 她让夜色让路">
+            <video class="悬停预览视频" src="素材/视频/YSL她让夜色让路-预览.mp4" poster="素材/封面/YSL她让夜色让路-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡 竖版" href="案例/DJI无声三界视角-进行中.html" aria-label="查看 DJI 进行中项目">
+            <video class="悬停预览视频" src="素材/视频/DJI无声三界视角-进行中短预览.mp4" poster="素材/封面/DJI无声三界视角-进行中封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/AMG黑曜之力.html" aria-hidden="true" tabindex="-1">
+            <video class="悬停预览视频" src="素材/视频/AMG黑曜之力-预览.mp4" poster="素材/封面/AMG黑曜之力-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/YSL她让夜色让路.html" aria-hidden="true" tabindex="-1">
+            <video class="悬停预览视频" src="素材/视频/YSL她让夜色让路-预览.mp4" poster="素材/封面/YSL她让夜色让路-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+        </div>
+        <div class="影像流轨道 向左">
+          <a class="流媒体卡" href="案例/YSL她让夜色让路.html" aria-label="查看 YSL 她让夜色让路">
+            <video class="悬停预览视频" src="素材/视频/YSL她让夜色让路-预览.mp4" poster="素材/封面/YSL她让夜色让路-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/AMG黑曜之力.html" aria-label="查看 AMG 黑曜之力">
+            <video class="悬停预览视频" src="素材/视频/AMG黑曜之力-预览.mp4" poster="素材/封面/AMG黑曜之力-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡 竖版" href="案例/DJI无声三界视角-进行中.html" aria-label="查看 DJI 进行中项目">
+            <video class="悬停预览视频" src="素材/视频/DJI无声三界视角-进行中短预览.mp4" poster="素材/封面/DJI无声三界视角-进行中封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/YSL她让夜色让路.html" aria-hidden="true" tabindex="-1">
+            <video class="悬停预览视频" src="素材/视频/YSL她让夜色让路-预览.mp4" poster="素材/封面/YSL她让夜色让路-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
+          <a class="流媒体卡" href="案例/AMG黑曜之力.html" aria-hidden="true" tabindex="-1">
+            <video class="悬停预览视频" src="素材/视频/AMG黑曜之力-预览.mp4" poster="素材/封面/AMG黑曜之力-封面.jpg" muted playsinline loop preload="metadata"></video>
+          </a>
         </div>
       </section>
 
@@ -79,6 +117,7 @@
         <div class="完成作品网格">
           <article class="大型作品卡">
             <a href="案例/AMG黑曜之力.html" aria-label="查看 AMG 黑曜之力案例">
+              <div class="卡片编号">01</div>
               <div class="卡片媒体 横版">
                 <video
                   class="悬停预览视频"
@@ -101,6 +140,7 @@
 
           <article class="大型作品卡 紧凑">
             <a href="案例/YSL她让夜色让路.html" aria-label="查看 YSL 她让夜色让路案例">
+              <div class="卡片编号">02</div>
               <div class="卡片媒体 横版">
                 <video
                   class="悬停预览视频"
